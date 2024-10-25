@@ -1,0 +1,3 @@
+-- Bibliotecas -- 
+    express
+    mysql2
