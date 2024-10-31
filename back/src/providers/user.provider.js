@@ -8,3 +8,12 @@ export const createUserProvider = async(userOptions) => {
         throw error;
     }
 }
+
+export const getUserProvider = async(id) => {
+    try {
+        const getUser = await userModel.findByPk(id)
+        return getUser
+    } catch (error) {
+        throw error;
+    }
+}
