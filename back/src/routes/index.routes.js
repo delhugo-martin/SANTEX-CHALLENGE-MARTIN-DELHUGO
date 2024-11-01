@@ -36,13 +36,10 @@ router.post("/user", async (req, res) => {
 // PLAYER ROUTES ====================================================
 
 // GET PLAYER
-router.get("/player/:id" , async (req,res)=>{
-  const id = req.params.id
+router.get("/player/:player_id" , async (req,res)=>{
   console.log(res.headersSent);  
-
-
   try {
-    const getPlayer = await getPlayerService(req.params.id)
+    const getPlayer = await getPlayerService(req.params.player_id)
     res.status(201).json(getPlayer)
   } catch (error) {
     res.status(500).json({message: error.message})
@@ -53,20 +50,68 @@ router.get("/player/:id" , async (req,res)=>{
 router.post("/player", async (req, res) => {
   console.log(res.headersSent);
   try {
-    const { username, password } = req.body;
-    const newPlayer = await createPlayerService({ username, password });
+    const {
+      player_id,
+      fifa_version,
+      fifa_update_date,
+      short_name,
+      long_name,
+      player_positions,
+      overall,
+      potential,
+      age,
+      dob,
+      height_cm,
+      weigth_kg,
+      league_name,
+      club_name,
+      club_jersey_number,
+      nationality_name,
+      preferred_foot,
+      pace,
+      shooting,
+      passing,
+      dribbing,
+      defending,
+      physic,
+      mentality_penalties,
+      player_face_url
+     } = req.body;
+
+
+    const newPlayer = await createPlayerService({
+      player_id,
+      fifa_version,
+      fifa_update_date,
+      short_name,
+      long_name,
+      player_positions,
+      overall,
+      potential,
+      age,
+      dob,
+      height_cm,
+      weigth_kg,
+      league_name,
+      club_name,
+      club_jersey_number,
+      nationality_name,
+      preferred_foot,
+      pace,
+      shooting,
+      passing,
+      dribbing,
+      defending,
+      physic,
+      mentality_penalties,
+      player_face_url
+
+     });
     res.status(201).json({newPlayer});
   } catch (error) {
     res.status(500).json({ message: error.message});
   }
 });
 
-
-
-
-
-
-
-
-
 export default router
+
