@@ -12,7 +12,7 @@ const infoDb = {
   host: "localhost",
   user: "root",
   password: "1317",
-  database: "db_challenge", //nombre de la db que uso localmente
+  database: "db_challenge_delhugo", //nombre de la db que uso localmente
 //database: "fifa_local"   para docker
  
 };
