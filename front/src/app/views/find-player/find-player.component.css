@@ -1,0 +1,21 @@
+html,body{margin: 0rem; padding: 0rem;}
+
+.section{display: flex; flex-direction: column; justify-content: center; align-items: center;
+  margin: 3rem 25rem;border: 1px solid  #EE363B;
+  border-radius: .5rem;}
+
+.form{margin: 0rem}
+
+.form_field{
+  display: flex; flex-direction: row; margin: 2rem 0rem;
+}
+
+
+.form_field input,label,select{
+  padding: .5rem; margin: 1rem;
+}
+
+.form_field select{
+  padding: .5rem 3rem;
+}
+

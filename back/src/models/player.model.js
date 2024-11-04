@@ -17,7 +17,7 @@ export const playerModel = pool.define("players",{
     },
     fifa_update_date: {
       type: DataTypes.STRING,
-      allowNull: false,
+      //allowNull: false,
     },
     short_name: {
       type: DataTypes.STRING,
@@ -43,10 +43,12 @@ export const playerModel = pool.define("players",{
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    dob: {
+    
+    birthday: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
+    
     height_cm: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -57,16 +59,18 @@ export const playerModel = pool.define("players",{
     },
     league_name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     club_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    club_jersey_number: {
+    
+    jersey_number: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
+    
     nationality_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -105,7 +109,7 @@ export const playerModel = pool.define("players",{
     },
     player_face_url: {
       type: DataTypes.STRING,
-      allowNull: false,
+    //allowNull: false,
     },
   
   })

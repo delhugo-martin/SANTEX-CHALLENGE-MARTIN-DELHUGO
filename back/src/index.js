@@ -2,12 +2,14 @@ import express from "express";
 import { initdb, PORT } from "./config/dbConnect.js";
 import router from "./routes/index.routes.js";
 import bodyParser from "body-parser";
+import cors from 'cors'
 
 const app = express();
 
 // middlewares
 app.use(express.json());
 app.use(bodyParser.json());
+app.use(cors({origin:'http://localhost:4200'}))
 
 //rutas
 app.use(router);

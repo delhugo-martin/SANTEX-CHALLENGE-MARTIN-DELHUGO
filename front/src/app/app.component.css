@@ -1,0 +1,36 @@
+/*
+COLORES
+
+*/
+html, body{margin: 0rem; padding: 0rem;}
+.border{
+  border: blue 1px solid;
+}
+
+a:link{
+  text-decoration: none;
+}
+
+/* NAV =================================== */
+
+nav{ display: flex; flex-direction: row; justify-content: space-between;
+  background-color: #EE363B; height: 4rem; padding: 0rem 2rem;}
+
+.nav-img{
+  background-image: url(./assets/logo.png); background-size:cover; height: 4rem; width: 13rem;
+}
+
+
+.nav-menu{ display: flex; flex-direction: row; justify-content: space-around; align-items: center;
+            padding: 1rem;}
+
+.nav-menu a {
+  list-style: none;
+  text-decoration: none;
+  padding: .5rem;
+  color: white;
+}
+
+
+
+

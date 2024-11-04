@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
+<body>
+  <section class="section">
+
+    <h2>Register Player</h2>
+
+    <form class="form" [formGroup]="form_register_player" (ngSubmit)="PlayerRegister()">
+
+      <!--  Id Player ======================================================================================= -->
+      <div class="form_field">
+        <div class="">
+          <input  type="text" formControlName="player_id">
+          <label  for="">ID Player</label>
+        </div>
+
+        <!-- verificacion -->
+        <div class="form_verif" *ngIf="player_idGET.invalid && (player_idGET.dirty || player_idGET.touched)">
+          <div class="form_verif" *ngIf="player_idGET.errors?.['required']">
+              <p class="form_verif" >Complete este campo.</p>
+            </div>
+        </div>
+
+      </div>
+
+      <!--  FIFA VERSION ================================================================== -->
+
+      <div class="form_field">
+        <div>
+        <select formControlName="fifa_version" class="form_select" id="player_camp" name="player_camp">
+          <option value="2015">2015</option>
+          <option value="2016">2016</option>
+          <option value="2017">2017</option>
+          <option value="2018">2018</option>
+          <option value="2018">2019</option>
+          <option value="2018">2020</option>
+          <option value="2018">2021</option>
+          <option value="2018">2022</option>
+          <option value="2018">2023</option>
+        </select>
+      <label class="form_label" for="">Version de FIFA</label>
+    </div>
+        <!-- verificacion -->
+        <div class="form_verif" *ngIf="fifa_versionGET.invalid && (fifa_versionGET.dirty || fifa_versionGET.touched)">
+          <div class="form_verif" *ngIf="fifa_versionGET.errors?.['required']">
+              <p class="form_verif" >Complete este campo.</p>
+            </div>
+        </div>
+    </div>
+
+      <!--  Short Name ========================================================================= -->
+      <div class="form_field">
+        <div>
+          <input formControlName="short_name" type="text">
+          <label for="">Short Name</label>
+        </div>
+        <!-- verificacion -->
+        <div class="form_verif" *ngIf="short_nameGET.invalid && (short_nameGET.dirty || short_nameGET.touched)">
+          <div class="form_verif" *ngIf="short_nameGET.errors?.['required']">
+              <p class="form_verif" >Complete este campo.</p>
+            </div>
+        </div>
+
+      </div>
+
+      <!--  Long Name  ==================================================================== -->
+      <div class="form_field">
+        <div>
+        <input formControlName="long_name" type="text">
+        <label for="">Long Name</label>
+      </div>
+
+        <!-- verificacion -->
+        <div class="form_verif" *ngIf="long_nameGET.invalid && (long_nameGET.dirty || long_nameGET.touched)">
+          <div class="form_verif" *ngIf="long_nameGET.errors?.['required']">
+              <p class="form_verif" >Complete este campo.</p>
+            </div>
+        </div>
+      </div>
+
+
+      <!--  position =================================================================== -->
+      <div class="form_field">
+      <div>
+      <select formControlName="player_positions" class="form_select" id="player_camp" name="player_camp">
+        <option value="GP">GP</option>
+        <option value="DF">DF</option>
+        <option value="MC">MC</option>
+        <option value="DC">DC</option>
+      </select>
+      <label for="">Position</label>
+    </div>
+
+        <!-- verificacion -->
+        <div class="form_verif" *ngIf="player_positionsGET.invalid && (player_positionsGET.dirty || player_positionsGET.touched)">
+          <div class="form_verif" *ngIf="player_positionsGET.errors?.['required']">
+              <p class="form_verif" >Complete este campo.</p>
+            </div>
+        </div>
+      </div>
+
+
+      <!--  overall ==================================================================== -->
+      <div class="form_field">
+        <div>
+        <input formControlName="overall" type="number">
+        <label for="">Overall</label>
+      </div>
+        <!-- verificacion -->
+        <div class="form_verif" *ngIf="overallGET.invalid && (overallGET.dirty || overallGET.touched)">
+          <div class="form_verif" *ngIf="overallGET.errors?.['required']">
+              <p class="form_verif" >Complete este campo.</p>
+            </div>
+        </div>
+    </div>
+      <!--  potential =============================================================== -->
+      <div class="form_field">
+        <div>
+        <input formControlName="potential" type="number">
+        <label for="">Potential</label>
+      </div>
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="potentialGET.invalid && (potentialGET.dirty || potentialGET.touched)">
+              <div class="form_verif" *ngIf="potentialGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+      <!--  age ====================================================================== -->
+      <div class="form_field">
+        <div>
+        <input formControlName="age"  type="number">
+        <label for="">Age</label>
+      </div>
+
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="ageGET.invalid && (ageGET.dirty || ageGET.touched)">
+              <div class="form_verif" *ngIf="ageGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+      <!--  birthdate
+      <div class="form_field">
+        <input formControlName="birthday" type="text">
+        <label for="">Birthdate</label>
+      </div>
+-->
+
+      <!--  Height cm ====================================================================== -->
+      <div class="form_field">
+
+        <div>
+        <input formControlName="height_cm" type="number">
+        <label for="">Height (cm)</label>
+      </div>
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="height_cmGET.invalid && (height_cmGET.dirty || height_cmGET.touched)">
+              <div class="form_verif" *ngIf="height_cmGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+      <!--  Weight (kg) ========================================================================= -->
+      <div class="form_field">
+        <div>
+        <input formControlName="weigth_kg"  type="number">
+        <label for="">Weight (kg)</label>
+      </div>
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="weigth_kgGET.invalid && (weigth_kgGET.dirty || weigth_kgGET.touched)">
+              <div class="form_verif" *ngIf="weigth_kgGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+
+      <!--  Club Name ========================================================= -->
+      <div class="form_field">
+        <div>
+        <input formControlName="club_name"  type="text">
+        <label for="">Club Name</label>
+      </div>
+
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="club_nameGET.invalid && (club_nameGET.dirty || club_nameGET.touched)">
+              <div class="form_verif" *ngIf="club_nameGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+
+      <div class="form_field">
+        <div>
+        <input  formControlName="jersey_number"  type="number">
+        <label for="">Jersey Number</label>
+      </div>
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="jersey_numberGET.invalid && (jersey_numberGET.dirty || jersey_numberGET.touched)">
+              <div class="form_verif" *ngIf="jersey_numberGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+
+      <!--  Nationality ====================================================================== -->
+      <div class="form_field">
+        <div>
+        <input formControlName="nationality_name"  type="text">
+        <label for="">Nationality</label>
+      </div>
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="nationality_nameGET.invalid && (nationality_nameGET.dirty || nationality_nameGET.touched)">
+              <div class="form_verif" *ngIf="nationality_nameGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+      <!--  Preferred Foot =================================================================== -->
+      <div class="form_field">
+        <div>
+      <select formControlName="preferred_foot"class="form_select" id="player_camp" name="player_camp">
+        <option value="Left">Left</option>
+        <option value="Right">Right</option>
+      </select>
+        <label for="">Preferred Foot</label>
+      </div>
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="preferred_footGET.invalid && (preferred_footGET.dirty || preferred_footGET.touched)">
+              <div class="form_verif" *ngIf="preferred_footGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+      <!--  Pace ====================================================================  -->
+      <div class="form_field">
+        <div>
+        <input type="number"formControlName="pace"  >
+        <label for="">Pace</label>
+      </div>
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="paceGET.invalid && (paceGET.dirty || paceGET.touched)">
+              <div class="form_verif" *ngIf="paceGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+
+      <!--  Shooting ==========================================================================0000 -->
+      <div class="form_field">
+        <div>
+        <input type="number"formControlName="shooting"  >
+        <label for="">Shooting</label>
+      </div>
+
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="shootingGET.invalid && (shootingGET.dirty || shootingGET.touched)">
+              <div class="form_verif" *ngIf="shootingGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+
+      <!--  Passing =================================================================================0 -->
+      <div class="form_field">
+
+        <div>
+        <input type="number"formControlName="passing"  >
+        <label for="">Passing</label>
+      </div>
+
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="passingGET.invalid && (passingGET.dirty || passingGET.touched)">
+              <div class="form_verif" *ngIf="passingGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+      <!--  Dribbing ========================================================================== -->
+      <div class="form_field">
+        <div>
+        <input type="number"formControlName="dribbing"  >
+        <label for="">Dribbing</label>
+      </div>
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="dribbingGET.invalid && (dribbingGET.dirty || dribbingGET.touched)">
+              <div class="form_verif" *ngIf="dribbingGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+
+      <!--  Defending =========================================================================== -->
+      <div class="form_field">
+
+        <div>
+        <input type="number" formControlName="defending"  >
+        <label for="">Defending</label>
+      </div>
+
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="defendingGET.invalid && (defendingGET.dirty || defendingGET.touched)">
+              <div class="form_verif" *ngIf="defendingGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+
+      <!--  Physic ================================================================================ -->
+      <div class="form_field">
+        <div>
+        <input type="number" formControlName="physic"  >
+        <label for="">Physic</label>
+      </div>
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="physicGET.invalid && (physicGET.dirty || physicGET.touched)">
+              <div class="form_verif" *ngIf="physicGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+
+      <!--  Mentality Penalties ================================================================== -->
+      <div class="form_field">
+        <div>
+        <input type="number" formControlName="mentality_penalties"  >
+        <label for="">Mentality Penalties</label>
+      </div>
+
+
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="mentality_penaltiesGET.invalid && (mentality_penaltiesGET.dirty || mentality_penaltiesGET.touched)">
+              <div class="form_verif" *ngIf="mentality_penaltiesGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+          <div>
+      <button class="boton"  type="submit">Registrar Jugador</button>
+          </div>
+    </form>
+
+  </section>
+
+
+
+</body>
+</html>
+
+
+
