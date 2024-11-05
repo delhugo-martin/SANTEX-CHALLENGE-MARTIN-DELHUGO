@@ -30,18 +30,18 @@ export class RegisterPlayerComponent {
   overall : ["", Validators.required],
   age : ["", Validators.required],
   potential : ["", Validators.required],
-  //birthday :["", Validators.required],
+  //dob :["", Validators.required],
   height_cm :["", Validators.required],
-  weigth_kg :["", Validators.required],
+  weight_kg :["", Validators.required],
   //league_name :["", Validators.required],
   club_name :["", Validators.required],
-  jersey_number :["", Validators.required],
+  club_jersey_number :["", Validators.required],
   nationality_name :["", Validators.required],
   preferred_foot :["", Validators.required],
   pace :["", Validators.required],
   shooting:["", Validators.required],
   passing:["", Validators.required],
-  dribbing :["", Validators.required],
+  dribbling :["", Validators.required],
   defending :["", Validators.required],
   physic :["", Validators.required],
   mentality_penalties :["", Validators.required],
@@ -84,27 +84,24 @@ get potentialGET() {
   return this.form_register_player.controls.potential
 }
 /*
-get birthdayGET() {
-  return this.form_register_player.controls.birthday
+get dobGET() {
+  return this.form_register_player.controls.dob
 }
 */
 get height_cmGET() {
   return this.form_register_player.controls.height_cm
 }
 
-get weigth_kgGET() {
-  return this.form_register_player.controls.weigth_kg
+get weight_kgGET() {
+  return this.form_register_player.controls.weight_kg
 }
 
 get club_nameGET() {
   return this.form_register_player.controls.club_name
 }
 
-
-
-
-get jersey_numberGET() {
-  return this.form_register_player.controls.jersey_number
+get club_jersey_numberGET() {
+  return this.form_register_player.controls.club_jersey_number
 }
 
 get nationality_nameGET() {
@@ -128,8 +125,8 @@ get passingGET() {
   return this.form_register_player.controls.passing
 }
 
-get dribbingGET() {
-  return this.form_register_player.controls.dribbing
+get dribblingGET() {
+  return this.form_register_player.controls.dribbling
 }
 
 get defendingGET() {
@@ -160,18 +157,18 @@ get mentality_penaltiesGET() {
       overall: this.form_register_player.value.overall,
       potential: this.form_register_player.value.potential,
       age: this.form_register_player.value.age,
-      //birthday: this.form_register_player.value.birthday,
+      //dob: this.form_register_player.value.dob,
       height_cm: this.form_register_player.value.height_cm,
-      weigth_kg: this.form_register_player.value.weigth_kg,
+      weight_kg: this.form_register_player.value.weight_kg,
       league_name: this.form_register_player.value.league_name,
       club_name: this.form_register_player.value.club_name,
-      jersey_number: this.form_register_player.value.jersey_number,
+      club_jersey_number: this.form_register_player.value.club_jersey_number,
       nationality_name: this.form_register_player.value.nationality_name,
       preferred_foot: this.form_register_player.value.preferred_foot,
       pace: this.form_register_player.value.pace,
       shooting: this.form_register_player.value.shooting,
       passing: this.form_register_player.value.passing,
-      dribbing: this.form_register_player.value.dribbing,
+      dribbling: this.form_register_player.value.dribbling,
       defending: this.form_register_player.value.defending,
       physic: this.form_register_player.value.physic,
       mentality_penalties: this.form_register_player.value.mentality_penalties,

@@ -8,7 +8,7 @@
 <body>
   <section class="section">
 
-    <h2>Register Player</h2>
+    <h2>Create Player</h2>
 
     <form class="form" [formGroup]="form_register_player" (ngSubmit)="PlayerRegister()">
 
@@ -151,7 +151,7 @@
 
       <!--  birthdate
       <div class="form_field">
-        <input formControlName="birthday" type="text">
+        <input formControlName="dob" type="text">
         <label for="">Birthdate</label>
       </div>
 -->
@@ -175,13 +175,13 @@
       <!--  Weight (kg) ========================================================================= -->
       <div class="form_field">
         <div>
-        <input formControlName="weigth_kg"  type="number">
+        <input formControlName="weight_kg"  type="number">
         <label for="">Weight (kg)</label>
       </div>
 
             <!-- verificacion -->
-            <div class="form_verif" *ngIf="weigth_kgGET.invalid && (weigth_kgGET.dirty || weigth_kgGET.touched)">
-              <div class="form_verif" *ngIf="weigth_kgGET.errors?.['required']">
+            <div class="form_verif" *ngIf="weight_kgGET.invalid && (weight_kgGET.dirty || weight_kgGET.touched)">
+              <div class="form_verif" *ngIf="weight_kgGET.errors?.['required']">
                   <p class="form_verif" >Complete este campo.</p>
                 </div>
             </div>
@@ -207,12 +207,12 @@
 
       <div class="form_field">
         <div>
-        <input  formControlName="jersey_number"  type="number">
+        <input  formControlName="club_jersey_number"  type="number">
         <label for="">Jersey Number</label>
       </div>
             <!-- verificacion -->
-            <div class="form_verif" *ngIf="jersey_numberGET.invalid && (jersey_numberGET.dirty || jersey_numberGET.touched)">
-              <div class="form_verif" *ngIf="jersey_numberGET.errors?.['required']">
+            <div class="form_verif" *ngIf="club_jersey_numberGET.invalid && (club_jersey_numberGET.dirty || club_jersey_numberGET.touched)">
+              <div class="form_verif" *ngIf="club_jersey_numberGET.errors?.['required']">
                   <p class="form_verif" >Complete este campo.</p>
                 </div>
             </div>
@@ -310,13 +310,13 @@
       <!--  Dribbing ========================================================================== -->
       <div class="form_field">
         <div>
-        <input type="number"formControlName="dribbing"  >
+        <input type="number"formControlName="dribbling"  >
         <label for="">Dribbing</label>
       </div>
 
             <!-- verificacion -->
-            <div class="form_verif" *ngIf="dribbingGET.invalid && (dribbingGET.dirty || dribbingGET.touched)">
-              <div class="form_verif" *ngIf="dribbingGET.errors?.['required']">
+            <div class="form_verif" *ngIf="dribblingGET.invalid && (dribblingGET.dirty || dribblingGET.touched)">
+              <div class="form_verif" *ngIf="dribblingGET.errors?.['required']">
                   <p class="form_verif" >Complete este campo.</p>
                 </div>
             </div>

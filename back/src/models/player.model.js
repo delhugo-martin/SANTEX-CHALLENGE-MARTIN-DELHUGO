@@ -44,7 +44,7 @@ export const playerModel = pool.define("players",{
       allowNull: false,
     },
     
-    birthday: {
+    dob: {
       type: DataTypes.STRING,
       allowNull: true,
     },
@@ -53,9 +53,9 @@ export const playerModel = pool.define("players",{
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    weigth_kg: {
+    weight_kg: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
     league_name: {
       type: DataTypes.STRING,
@@ -66,7 +66,7 @@ export const playerModel = pool.define("players",{
       allowNull: false,
     },
     
-    jersey_number: {
+    club_jersey_number: {
       type: DataTypes.INTEGER,
       allowNull: true,
     },
@@ -91,9 +91,9 @@ export const playerModel = pool.define("players",{
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    dribbing: {
+    dribbling: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
     defending: {
       type: DataTypes.INTEGER,

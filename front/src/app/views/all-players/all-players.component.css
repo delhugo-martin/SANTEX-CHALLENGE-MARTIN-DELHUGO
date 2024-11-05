@@ -35,4 +35,9 @@ table{
 thead{background-color: rgb(236, 236, 236); }
 th,td{ padding: 1rem; border-bottom: 1px solid rgb(221, 221, 221) ;}
 
+.boton{
+  background-color: #EE363B; border-radius: .5rem; border: 1px solid  #EE363B; color: white;
+  padding:.5rem 1rem;
+}
+
 .border{ border: #EE363B solid 1px;}

@@ -9,26 +9,27 @@
 <body>
   <section class="section">
 
-    <h2>Find Player</h2>
+    <h2>All Players</h2>
 
-    <form class="form" action="">
+    <form class="form" [formGroup]="form_search" (ngSubmit)="find_player()">
 
  <!--  FILTRO  -->
+
  <div class="form_field ">
    <label class="form_label" for="">Elige el filtro</label>
 
-  <select class="form_select" id="player_camp" name="player_camp">
-    <option value="nombre">nombre</option>
-    <option value="club">club</option>
-    <option value="nacionalidad">nacionalidad</option>
-    <option value="posicion">posicion</option>
+  <select class="form_select boton" id="player_camp" name="player_camp"  formControlName="filtroControl" >
+    <option value="short_name">Nombre</option>
+    <option value="club_name">Club</option>
+    <option value="league_name">Liga</option>
+    <option value="age">Edad</option>
   </select>
 
 </div>
       <!--  BUSCAR  -->
       <div class="form_field">
 
-        <input type="text">
+        <input type="text" formControlName="search" >
         <button class="boton"  type="submit">Buscar</button>
 
     </div>
@@ -44,7 +45,7 @@
   <!-- RESULTADO BUSQUEDA ======================================= -->
 
   <section class="tabla">
-    <table class="">
+    <table class="" id="playersCSV">
       <thead>
         <tr>
           <th class="col">ID player</th>
@@ -74,7 +75,7 @@
 
         </tr>
       </thead>
-      <tbody  *ngFor="let s of players">
+      <tbody  *ngFor="let s of players | paginate: { itemsPerPage: 10, currentPage: p } ">
         <tr>
           <th class="col">{{s.player_id}}</th>
           <th class="col">{{s.short_name}}</th>
@@ -98,7 +99,7 @@
           <th class="col">{{s.dribbing}}</th>
           <th class="col">{{s.physic}}</th>
           <th class="col">{{s.mentality_penalties}}</th>
-          <th class="col">{{s.player_face_url}}</th>
+          <th class="col"> <a target="_blank" href="{{s.player_face_url}}">Link</a></th>
 
 
 
@@ -110,6 +111,10 @@
       </tbody>
     </table>
   </section>
+  <div>
+  <button class="boton" (click)="downloadCSV()" >Descargar pagina CSV</button>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
 
 
 
@@ -123,6 +128,7 @@
 
 </body>
 </html>
+
 
 
 

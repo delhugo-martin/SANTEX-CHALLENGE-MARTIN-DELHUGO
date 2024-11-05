@@ -7,6 +7,3 @@ mysql -u root -p
 
 CREATE DATABASE db_challenge_delhugo
 USE db_challenge_delhugo
-
-
-
