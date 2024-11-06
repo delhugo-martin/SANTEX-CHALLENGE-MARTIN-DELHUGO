@@ -8,7 +8,7 @@ export const playerModel = pool.define("players",{
     player_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      unique: true,
+      unique: false,
      // autoIncrement:true
     },
     fifa_version: {

@@ -91,9 +91,12 @@ export const getPlayerByLeagueNameProvider = async (league_name_value) => {
   };
 
 // GET BY ID
-export const getPlayerProvider = async (player_id) => {
+export const getPlayerByIdProvider = async (player_id_value) => {
   try {
-    const getUser = await playerModel.findByPk(player_id);
+    const getUser = await playerModel.findAll({       
+      where: {
+      player_id: player_id_value,
+    },});
     return getUser;
   } catch (error) {
     throw error;

@@ -2,7 +2,7 @@ import { Router } from "express";
 import { createUserService, getUserService } from "../services/user.service.js";
 import {
   createPlayerService,
-  getPlayerService,
+  getPlayerByIdService,
   getPlayersService,
   getPlayerByShortNameService,
   getPlayerByAgeService,
@@ -41,7 +41,7 @@ router.post("/user", async (req, res) => {
 
 // PLAYER ROUTES ====================================================
 
-// GET PLAYERS
+// GET ALL PLAYERS
 router.get("/players", async (req, res) => {
   console.log(res.headersSent);
   try {
@@ -53,10 +53,10 @@ router.get("/players", async (req, res) => {
 });
 
 // GET PLAYER POR ID
-router.get("/player/:player_id", async (req, res) => {
+router.get("/player/player_id/:player_id", async (req, res) => {
   console.log(res.headersSent);
   try {
-    const getPlayer = await getPlayerService(req.params.player_id);
+    const getPlayer = await getPlayerByIdService(req.params.player_id);
     res.status(201).json(getPlayer);
   } catch (error) {
     res.status(500).json({ message: error.message });

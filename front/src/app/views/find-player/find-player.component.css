@@ -1,17 +1,22 @@
-
 html,body{margin: 0rem; padding: 0rem;
   display: flex; flex-direction: column; justify-content: center; align-items: center;}
 
 .section{display: flex; flex-direction: row; justify-content: center; align-items: center;
- margin: 3rem;border: 1px solid  #EE363B;
+ margin: 3rem;border: 1px solid  #EE363B; height: 10rem;
  border-radius: .5rem;}
 
-.form {margin: 0rem; display: flex; flex-direction: row; }
+ .form {margin: 0rem; display: flex; flex-direction: row; justify-content: start;
+  align-items: start;}
 
-.form_field{
- display: flex; flex-direction: row; align-items: center; justify-content: center;
-  margin: 2rem 0rem; ; height: 1rem;
-}
+  .form_field{
+   display: flex; flex-direction: column; align-items: start; justify-content:center;
+    margin: 2rem 0rem; ; height: 1rem;
+  }
+
+  .form_field_div{
+    display: flex; flex-direction: row; align-items: center; justify-content: center;
+     margin: 2rem 0rem; ; height: 1rem;}
+
 
 .section h2{
   margin: 2rem 6rem;
@@ -20,7 +25,7 @@ html,body{margin: 0rem; padding: 0rem;
 .form_field input,label,select,div,button{
  padding: .5rem; margin: .5rem; text-align: center;}
 
-.form_verif {margin: 0rem .5rem; padding: 0rem; color: #EE363B;}
+.form_verif {margin: -.4rem 1rem; padding: 0rem; color: #EE363B;}
 
 
 
@@ -29,10 +34,14 @@ table{
   margin: 1rem; padding: 1rem;
 }
 
-.tabla{overflow: scroll; width: 95vw; height: 30rem; border: 1px solid #ffaaac;
+.tabla{overflow: scroll; width: 95vw; height: 18rem; border: 1px solid #ffaaac;
   border-radius: .5rem;}
 
 thead{background-color: rgb(236, 236, 236); }
 th,td{ padding: 1rem; border-bottom: 1px solid rgb(221, 221, 221) ;}
 
 .border{ border: #EE363B solid 1px;}
+.boton{
+  background-color: #EE363B; border-radius: .5rem; border: 1px solid  #EE363B; color: white;
+  padding:.5rem 1rem;
+}

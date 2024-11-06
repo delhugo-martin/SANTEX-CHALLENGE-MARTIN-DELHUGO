@@ -16,8 +16,8 @@ ENDPOINT = "http://localhost:3000/"
 
 
 //  PLayerPOST(datos: any, id:any) {
-  PlayersGET():Observable<any> {
-    return this.http.get("http://localhost:3000/players")
+  PlayerByIdGET(id:any):Observable<any> {
+    return this.http.get("http://localhost:3000/player/player_id/"+id)
 
   }
 

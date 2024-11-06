@@ -11,12 +11,17 @@
 
     <h2>All Players</h2>
 
-    <form class="form" [formGroup]="form_search" (ngSubmit)="find_player()">
+<form class="form" [formGroup]="form_search" (ngSubmit)="find_player()">
 
  <!--  FILTRO  -->
 
  <div class="form_field ">
-   <label class="form_label" for="">Elige el filtro</label>
+  <div class="form_field_div" >
+    <div>
+      <label class="form_label" for="">Elige el filtro</label>
+    </div>
+
+    <div>
 
   <select class="form_select boton" id="player_camp" name="player_camp"  formControlName="filtroControl" >
     <option value="short_name">Nombre</option>
@@ -24,15 +29,38 @@
     <option value="league_name">Liga</option>
     <option value="age">Edad</option>
   </select>
+</div>
+
+</div>
+
+  <!-- verificacion -->
+  <div class="form_verif" *ngIf="filtro_controlGET.invalid && (filtro_controlGET.dirty || filtro_controlGET.touched)">
+    <div class="form_verif" *ngIf="filtro_controlGET.errors?.['required']">
+        <p class="form_verif" >Elige un filtro.</p>
+       </div>
+  </div>
 
 </div>
       <!--  BUSCAR  -->
       <div class="form_field">
+        <div class="form_field_div" >
+          <div>
+          <input type="text" formControlName="search" >
+        </div>
+        <div>
+          <button class="boton"  type="submit">Buscar</button>
+        </div>
+        </div>
+        <!-- verificacion -->
+        <div class="form_verif" *ngIf="searchGET.invalid && (searchGET.dirty || searchGET.touched)">
+            <div class="form_verif" *ngIf="searchGET.errors?.['required']">
+              <p class="form_verif" >Complete este campo.</p>
+             </div>
+        </div>
 
-        <input type="text" formControlName="search" >
-        <button class="boton"  type="submit">Buscar</button>
 
     </div>
+
 
 
 
@@ -62,12 +90,12 @@
           <th class="col">League name</th>
           <th class="col">Club name</th>
           <th class="col">Jersey number</th>
-          <th class="col">Nationality</th>
+         <!--<th class="col">Nationality</th>-->
           <th class="col">Preferred foot</th>
           <th class="col">Pace</th>
           <th class="col">Shooting</th>
           <th class="col">Passing</th>
-          <th class="col">Dribbing</th>
+          <th class="col">Dribbling</th>
           <th class="col">Physic</th>
           <th class="col">Mentality penalties</th>
           <th class="col">Player face URL</th>
@@ -91,22 +119,15 @@
           <th class="col">{{s.league_name}}</th>
           <th class="col">{{s.club_name}}</th>
           <th class="col">{{s.club_jersey_number}}</th>
-          <th class="col">{{s.nationality}}</th>
+         <!-- <th class="col">{{s.nationality}}</th>-->
           <th class="col">{{s.preferred_foot}}</th>
           <th class="col">{{s.pace}}</th>
           <th class="col">{{s.shooting}}</th>
           <th class="col">{{s.passing}}</th>
-          <th class="col">{{s.dribbing}}</th>
+          <th class="col">{{s.dribbling}}</th>
           <th class="col">{{s.physic}}</th>
           <th class="col">{{s.mentality_penalties}}</th>
           <th class="col"> <a target="_blank" href="{{s.player_face_url}}">Link</a></th>
-
-
-
-
-
-
-
         </tr>
       </tbody>
     </table>
@@ -115,7 +136,6 @@
   <button class="boton" (click)="downloadCSV()" >Descargar pagina CSV</button>
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
-
 
 
 

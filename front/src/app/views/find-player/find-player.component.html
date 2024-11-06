@@ -1,128 +1,111 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
-</head>
-<body>
-  <section class="section">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+  <body>
+    <section class="section">
+      <h2>Find Player</h2>
 
-    <h2>Find Player</h2>
+      <form class="form" [formGroup]="form_search" (ngSubmit)="find_player()">
+        <!--  BUSCAR  -->
+        <div class="form_field">
+          <div class="form_field_div" >
+            <div>
+            <input
+              type="text"
+              formControlName="search"
+              placeholder="Ingresa en ID player"
+            />
+          </div>
+          <div>
+            <button class="boton" type="submit">Buscar</button>
+          </div>
 
-    <form class="form" action="">
+        </div>
+        <!-- verificacion -->
+        <div class="form_verif"
+          *ngIf="searchGET.invalid && (searchGET.dirty || searchGET.touched)"
+        >
+          <div class="form_verif" *ngIf="searchGET.errors?.['required']">
+            <p class="form_verif">Completa este campo.</p>
+          </div>
+        </div>
+      </div>
+      </form>
+    </section>
 
- <!--  FILTRO  -->
- <div class="form_field ">
-   <label class="form_label" for="">Elige el filtro</label>
+    <!-- RESULTADO BUSQUEDA ======================================= -->
 
-  <select class="form_select" id="player_camp" name="player_camp">
-    <option value="nombre">nombre</option>
-    <option value="club">club</option>
-    <option value="nacionalidad">nacionalidad</option>
-    <option value="posicion">posicion</option>
-  </select>
+    <section class="tabla">
+      <table class="">
+        <thead>
+          <tr>
+            <th class="col">ID player</th>
+            <th class="col">Short name</th>
+            <th class="col">Long name</th>
+            <th class="col">Fifa Version</th>
+            <th class="col">Player positions</th>
+            <th class="col">Overall</th>
+            <th class="col">Potential</th>
+            <th class="col">Age</th>
+            <th class="col">Birthday</th>
+            <th class="col">Height (cm)</th>
+            <th class="col">Wieght (kg)</th>
+            <th class="col">League name</th>
+            <th class="col">Club name</th>
+            <th class="col">Jersey number</th>
+            <!--<th class="col">Nationality</th>-->
+            <th class="col">Preferred foot</th>
+            <th class="col">Pace</th>
+            <th class="col">Shooting</th>
+            <th class="col">Passing</th>
+            <th class="col">Dribbing</th>
+            <th class="col">Physic</th>
+            <th class="col">Mentality penalties</th>
+            <th class="col">Player face URL</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let s of player">
+          <tr>
+            <th class="col">{{ s.player_id }}</th>
+            <th class="col">{{ s.short_name }}</th>
+            <th class="col">{{ s.long_name }}</th>
+            <th class="col">{{ s.fifa_version }}</th>
+            <th class="col">{{ s.player_positions }}</th>
+            <th class="col">{{ s.overall }}</th>
+            <th class="col">{{ s.potential }}</th>
+            <th class="col">{{ s.age }}</th>
+            <th class="col">{{ s.dob }}</th>
+            <th class="col">{{ s.height_cm }}</th>
+            <th class="col">{{ s.weight_kg }}</th>
+            <th class="col">{{ s.league_name }}</th>
+            <th class="col">{{ s.club_name }}</th>
+            <th class="col">{{ s.club_jersey_number }}</th>
+            <!-- <th class="col">{{ s.nationality }}</th>-->
+            <th class="col">{{ s.preferred_foot }}</th>
+            <th class="col">{{ s.pace }}</th>
+            <th class="col">{{ s.shooting }}</th>
+            <th class="col">{{ s.passing }}</th>
+            <th class="col">{{ s.dribbling }}</th>
+            <th class="col">{{ s.physic }}</th>
+            <th class="col">{{ s.mentality_penalties }}</th>
+            <th class="col">
+              <a target="_blank" href="{{ s.player_face_url }}">Link</a>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </section>
 
-</div>
-      <!--  BUSCAR  -->
-      <div class="form_field">
-
-        <input type="text">
-        <button class="boton"  type="submit">Buscar</button>
-
-    </div>
-
-
-
-
-    </form>
-
-  </section>
-
-
-  <!-- RESULTADO BUSQUEDA ======================================= -->
-
-  <section class="tabla">
-    <table class="">
-      <thead>
-        <tr>
-          <th class="col">ID player</th>
-          <th class="col">Short name</th>
-          <th class="col">Long name</th>
-          <th class="col">Fifa Version</th>
-          <th class="col">Player positions</th>
-          <th class="col">Overall</th>
-          <th class="col">Potential</th>
-          <th class="col">Age</th>
-          <th class="col">Birthday</th>
-          <th class="col">Height (cm)</th>
-          <th class="col">Wieght (kg)</th>
-          <th class="col">League name</th>
-          <th class="col">Club name</th>
-          <th class="col">Jersey number</th>
-          <th class="col">Nationality</th>
-          <th class="col">Preferred foot</th>
-          <th class="col">Pace</th>
-          <th class="col">Shooting</th>
-          <th class="col">Passing</th>
-          <th class="col">Dribbing</th>
-          <th class="col">Physic</th>
-          <th class="col">Mentality penalties</th>
-          <th class="col">Player face URL</th>
-
-
-        </tr>
-      </thead>
-      <tbody  *ngFor="let s of players">
-        <tr>
-          <th class="col">{{s.player_id}}</th>
-          <th class="col">{{s.short_name}}</th>
-          <th class="col">{{s.long_name}}</th>
-          <th class="col">{{s.fifa_version}}</th>
-          <th class="col">{{s.player_positions}}</th>
-          <th class="col">{{s.overall}}</th>
-          <th class="col">{{s.potential}}</th>
-          <th class="col">{{s.age}}</th>
-          <th class="col">{{s.dob}}</th>
-          <th class="col">{{s.height_cm}}</th>
-          <th class="col">{{s.weight_kg}}</th>
-          <th class="col">{{s.league_name}}</th>
-          <th class="col">{{s.club_name}}</th>
-          <th class="col">{{s.club_jersey_number}}</th>
-          <th class="col">{{s.nationality}}</th>
-          <th class="col">{{s.preferred_foot}}</th>
-          <th class="col">{{s.pace}}</th>
-          <th class="col">{{s.shooting}}</th>
-          <th class="col">{{s.passing}}</th>
-          <th class="col">{{s.dribbing}}</th>
-          <th class="col">{{s.physic}}</th>
-          <th class="col">{{s.mentality_penalties}}</th>
-          <th class="col">{{s.player_face_url}}</th>
-
-
-
-
-
-
-
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-
-
-
-
-
-
-
-
-
-
-</body>
+    <!-- ESTADISTICAS -->
+    <section class="estadisticas">
+      <div>
+        <h2>Estadisticas del jugador</h2>
+        <canvas id="estadis_chart">{{ chart }}</canvas>
+      </div>
+    </section>
+  </body>
 </html>
-
-
-

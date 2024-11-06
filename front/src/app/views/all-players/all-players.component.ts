@@ -5,6 +5,7 @@ import { NgFor } from '@angular/common';
 import { NgxPaginationModule } from 'ngx-pagination';
 import * as XLSX from 'xlsx';
 import { ReactiveFormsModule, FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CommonModule , NgIf} from '@angular/common';
 
 
 
@@ -13,7 +14,7 @@ import { ReactiveFormsModule, FormControl, FormGroup, FormBuilder, Validators } 
 @Component({
   selector: 'app-all-players',
   standalone: true,
-  imports: [NgFor, NgxPaginationModule, ReactiveFormsModule],
+  imports: [NgFor,NgIf, NgxPaginationModule, ReactiveFormsModule],
 
   templateUrl: './all-players.component.html',
   styleUrl: './all-players.component.css',
@@ -35,6 +36,16 @@ export class AllPlayersComponent {
     })
 
   } // END NG
+
+  // FORM CONTROLS
+
+  get filtro_controlGET() {
+    return this.form_search.controls.filtroControl
+  }
+  get searchGET() {
+    return this.form_search.controls.search
+  }
+
 
   // GET PLAYERS
   getPlayers() {
@@ -97,6 +108,8 @@ export class AllPlayersComponent {
 
   // FIND PLAYER BOTON
   find_player(){
+    if (this.form_search.valid){
+
     if(this.form_search.value.filtroControl=== "short_name"){
     this.getPlayersByShortName(this.form_search.value.search)
   }else if (this.form_search.value.filtroControl=== "age"){
@@ -107,6 +120,10 @@ export class AllPlayersComponent {
     this.getPlayersByLeagueName(this.form_search.value.search)
   }
 
+    }else{
+      this.form_search.markAllAsTouched();
+
+    }
 
   }///
 

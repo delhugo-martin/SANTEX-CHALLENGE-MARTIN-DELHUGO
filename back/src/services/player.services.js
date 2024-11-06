@@ -1,6 +1,6 @@
 import {
   createPlayerProvider,
-  getPlayerProvider,
+  getPlayerByIdProvider,
   getPlayersProvider,
   getPlayerByShortNameProvider,
   getPlayerByAgeProvider,
@@ -14,8 +14,8 @@ export const createPlayerService = async (player) => {
 };
 
 // BY ID
-export const getPlayerService = async (id) => {
-  return await getPlayerProvider(id);
+export const getPlayerByIdService = async (id) => {
+  return await getPlayerByIdProvider(id);
 };
 
 // SHORT NAME
