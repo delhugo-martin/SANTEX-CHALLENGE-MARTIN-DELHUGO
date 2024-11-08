@@ -1,1 +1,173 @@
-<p>edit-player works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
+<body>
+  <section class="section">
+
+    <h2>Edit Player</h2>
+
+    <form class="form" [formGroup]="form_put" (ngSubmit)="putPlayer()">
+
+
+
+
+      <!--  Club Name =========================================================-->
+      <div class="form_field">
+        <div>
+        <input  [(ngModel)]="player.club_name"  [ngModelOptions]="{standalone: true}">
+        <label for="">Club Name</label>
+      </div>
+
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="club_nameGET.invalid && (club_nameGET.dirty || club_nameGET.touched)">
+              <div class="form_verif" *ngIf="club_nameGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+
+      <!--  Club Name ========================================================= -->
+      <div class="form_field">
+        <div>
+          <input  [(ngModel)]="player.league_name"  [ngModelOptions]="{standalone: true}">
+        <label for="">League Name</label>
+      </div>
+
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="league_nameGET.invalid && (league_nameGET.dirty || league_nameGET.touched)">
+              <div class="form_verif" *ngIf="league_nameGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+      <!--  Pace ====================================================================  -->
+      <div class="form_field">
+        <div>
+          <input  [(ngModel)]="player.pace"  [ngModelOptions]="{standalone: true}">
+        <label for="">Pace</label>
+      </div>
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="paceGET.invalid && (paceGET.dirty || paceGET.touched)">
+              <div class="form_verif" *ngIf="paceGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+
+      <!--  Shooting ==========================================================================0000 -->
+      <div class="form_field">
+        <div>
+          <input  [(ngModel)]="player.shooting"  [ngModelOptions]="{standalone: true}">
+        <label for="">Shooting</label>
+      </div>
+
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="shootingGET.invalid && (shootingGET.dirty || shootingGET.touched)">
+              <div class="form_verif" *ngIf="shootingGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+
+      <!--  Passing =================================================================================0 -->
+      <div class="form_field">
+
+        <div>
+          <input  [(ngModel)]="player.passing"  [ngModelOptions]="{standalone: true}">
+        <label for="">Passing</label>
+      </div>
+
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="passingGET.invalid && (passingGET.dirty || passingGET.touched)">
+              <div class="form_verif" *ngIf="passingGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+      <!--  Defending =========================================================================== -->
+      <div class="form_field">
+
+        <div>
+          <input  [(ngModel)]="player.defending"  [ngModelOptions]="{standalone: true}">
+        <label for="">Defending</label>
+      </div>
+
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="defendingGET.invalid && (defendingGET.dirty || defendingGET.touched)">
+              <div class="form_verif" *ngIf="defendingGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+
+      <!--  Physic ================================================================================ -->
+      <div class="form_field">
+        <div>
+          <input  [(ngModel)]="player.physic"  [ngModelOptions]="{standalone: true}">
+        <label for="">Physic</label>
+      </div>
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="physicGET.invalid && (physicGET.dirty || physicGET.touched)">
+              <div class="form_verif" *ngIf="physicGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+
+      <!--  Mentality Penalties ================================================================== -->
+      <div class="form_field">
+        <div>
+          <input  [(ngModel)]="player.mentality_penalties"  [ngModelOptions]="{standalone: true}">
+        <label for="">Mentality Penalties</label>
+      </div>
+
+
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="mentality_penaltiesGET.invalid && (mentality_penaltiesGET.dirty || mentality_penaltiesGET.touched)">
+              <div class="form_verif" *ngIf="mentality_penaltiesGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+          <div>
+      <button class="boton"  type="submit">Editar Jugador</button>
+          </div>
+    </form>
+
+  </section>
+
+
+
+</body>
+</html>
+
+
+
+

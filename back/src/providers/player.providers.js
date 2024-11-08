@@ -76,7 +76,7 @@ export const getPlayerByClubNameProvider = async (club_name_value) => {
   }
 };
 
-// GET BY CLUB NAME
+// GET BY LEAGUE NAME
 export const getPlayerByLeagueNameProvider = async (league_name_value) => {
     try {
       const getPlayer = await playerModel.findAll({
@@ -90,8 +90,8 @@ export const getPlayerByLeagueNameProvider = async (league_name_value) => {
     }
   };
 
-// GET BY ID
-export const getPlayerByIdProvider = async (player_id_value) => {
+// GET BY PLAYER ID
+export const getPlayerByPlayerIdProvider = async (player_id_value) => {
   try {
     const getUser = await playerModel.findAll({       
       where: {
@@ -102,4 +102,45 @@ export const getPlayerByIdProvider = async (player_id_value) => {
     throw error;
   }
 };
+
+
+// GET BY ID
+export const getPlayerByIdProvider = async (id_value) => {
+  try {
+    const getUser = await playerModel.findAll({       
+      where: {
+      id: id_value,
+    },});
+    return getUser;
+  } catch (error) {
+    throw error;
+  }
+};
+
+// PUT BY ID
+export const putPlayerByIdProvider = async (player) => {
+  try {
+      const putUser = await playerModel.update(
+      {
+          // info de club
+          club_name: player.club_name,
+          league_name: player.league_name,
+          // atributos del jugador
+          pace: player.pace,
+          shooting: player.shooting,
+          passing: player.passing,
+          //dribbling: player.dribbling,
+          defending: player.defending,
+          physic: player.physic,
+          mentality_penalties: player.mentality_penalties,
+     
+      },
+      { where: {id:player.id }}
+    );
+    return putUser;
+  } catch (error) {
+    throw error;
+  }
+};
+
 

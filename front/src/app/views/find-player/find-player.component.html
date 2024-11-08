@@ -43,6 +43,7 @@
       <table class="">
         <thead>
           <tr>
+            <th class="col">Action</th>
             <th class="col">ID player</th>
             <th class="col">Short name</th>
             <th class="col">Long name</th>
@@ -70,6 +71,8 @@
         </thead>
         <tbody *ngFor="let s of player">
           <tr>
+            <th class="col"><button (click)="toUpdate(s.id)">Editar</button></th>
+
             <th class="col">{{ s.player_id }}</th>
             <th class="col">{{ s.short_name }}</th>
             <th class="col">{{ s.long_name }}</th>
@@ -107,5 +110,7 @@
         <canvas id="estadis_chart">{{ chart }}</canvas>
       </div>
     </section>
+
+    <router-outlet></router-outlet>
   </body>
 </html>

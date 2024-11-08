@@ -1,19 +1,26 @@
 import {
   createPlayerProvider,
+  getPlayerByPlayerIdProvider,
   getPlayerByIdProvider,
   getPlayersProvider,
   getPlayerByShortNameProvider,
   getPlayerByAgeProvider,
   getPlayerByNationalityProvider,
   getPlayerByClubNameProvider,
-  getPlayerByLeagueNameProvider
+  getPlayerByLeagueNameProvider,
+  putPlayerByIdProvider
 } from "../providers/player.providers.js";
 
 export const createPlayerService = async (player) => {
   return await createPlayerProvider(player);
 };
 
-// BY ID
+// BY PLAYER ID
+export const getPlayerByPlayerIdService = async (player_id) => {
+  return await getPlayerByPlayerIdProvider(player_id);
+};
+
+// BY PLAYER ID
 export const getPlayerByIdService = async (id) => {
   return await getPlayerByIdProvider(id);
 };
@@ -46,4 +53,9 @@ export const getPlayerByLeagueNameService = async ( player) => {
 // ALL
 export const getPlayersService = async () => {
   return await getPlayersProvider();
+};
+
+// PUT BY ID
+export const putPlayerByIdService = async (player) => {
+  return await putPlayerByIdProvider(player);
 };

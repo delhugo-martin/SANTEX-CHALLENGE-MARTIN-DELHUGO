@@ -12,11 +12,13 @@ import {
 import { Chart, RadarController, registerables } from 'chart.js';
 Chart.register(...registerables);
 import { CommonModule, NgIf } from '@angular/common';
+import {RouterOutlet,Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-find-player',
   standalone: true,
-  imports: [NgFor, NgIf, ReactiveFormsModule],
+  imports: [NgFor, NgIf, ReactiveFormsModule,RouterOutlet],
   templateUrl: './find-player.component.html',
   styleUrl: './find-player.component.css',
 })
@@ -24,7 +26,8 @@ export class FindPlayerComponent {
   constructor(
     private serv: FindPlayerService,
     private http: HttpClient,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router:Router
   ) {} // END CONSTRUCTOR
 
   // VARIABLES
@@ -86,7 +89,7 @@ export class FindPlayerComponent {
       this.serv.PlayerByIdGET(this.form_search.value.search).subscribe(
         (data: any) => {
           this.player = data;
-          //console.log(data);
+          console.log(data);
 
           function numberRandom() {
             const minCeiled = Math.ceil(0);
@@ -135,4 +138,11 @@ export class FindPlayerComponent {
   get searchGET() {
     return this.form_search.controls.search;
   }
+
+
+  toUpdate(s:string){
+    this.router.navigate(["update_player/"+s])
+
+  }
+
 } ///////////////////////////////////////////////////////////////////////////////

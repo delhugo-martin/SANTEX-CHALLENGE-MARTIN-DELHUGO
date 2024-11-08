@@ -2,13 +2,15 @@ import { Router } from "express";
 import { createUserService, getUserService } from "../services/user.service.js";
 import {
   createPlayerService,
+  getPlayerByPlayerIdService,
   getPlayerByIdService,
   getPlayersService,
   getPlayerByShortNameService,
   getPlayerByAgeService,
   getPlayerByClubNameService,
   getPlayerByNationalityService,
-  getPlayerByLeagueNameService
+  getPlayerByLeagueNameService,
+  putPlayerByIdService,
 } from "../services/player.services.js";
 
 const router = Router();
@@ -52,16 +54,39 @@ router.get("/players", async (req, res) => {
   }
 });
 
-// GET PLAYER POR ID
+// GET PLAYER POR PLAYER ID
 router.get("/player/player_id/:player_id", async (req, res) => {
   console.log(res.headersSent);
   try {
-    const getPlayer = await getPlayerByIdService(req.params.player_id);
+    const getPlayer = await getPlayerByPlayerIdService(req.params.player_id);
     res.status(201).json(getPlayer);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
+
+// GET PLAYER POR ID
+router.get("/player/id/:id", async (req, res) => {
+  console.log(res.headersSent);
+  try {
+    const getPlayer = await getPlayerByIdService(req.params.id);
+    res.status(201).json(getPlayer);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// GET PLAYER POR ID
+router.get("/player/id/:id", async (req, res) => {
+  console.log(res.headersSent);
+  try {
+    const getPlayer = await getPlayerByPlayerIdService(req.params.player_id);
+    res.status(201).json(getPlayer);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 
 // GET PLAYER POR SHORT NAME
 router.get(`/player/short_name/:short_name`, async (req, res) => {
@@ -77,7 +102,9 @@ router.get(`/player/short_name/:short_name`, async (req, res) => {
 router.get(`/player/club_name/:club_name`, async (req, res) => {
   console.log(res.headersSent);
   try {
-    const getPlayerLeague = await getPlayerByClubNameService(req.params.club_name);
+    const getPlayerLeague = await getPlayerByClubNameService(
+      req.params.club_name
+    );
     res.status(201).json(getPlayerLeague);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -88,7 +115,9 @@ router.get(`/player/club_name/:club_name`, async (req, res) => {
 router.get(`/player/league_name/:league_name`, async (req, res) => {
   console.log(res.headersSent);
   try {
-    const getPlayerLeague = await getPlayerByLeagueNameService(req.params.league_name);
+    const getPlayerLeague = await getPlayerByLeagueNameService(
+      req.params.league_name
+    );
     res.status(201).json(getPlayerLeague);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -99,13 +128,14 @@ router.get(`/player/league_name/:league_name`, async (req, res) => {
 router.get(`/player/nationality/:nationality`, async (req, res) => {
   console.log(res.headersSent);
   try {
-    const getPlayer = await getPlayerByNationalityService(req.params.nationality);
+    const getPlayer = await getPlayerByNationalityService(
+      req.params.nationality
+    );
     res.status(201).json(getPlayer);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
-
 
 // GET PLAYER POR AGE
 router.get(`/player/age/:age`, async (req, res) => {
@@ -118,67 +148,37 @@ router.get(`/player/age/:age`, async (req, res) => {
   }
 });
 
-
 // POST PLAYER ====================================================
-router.post("/player", async (req, res) => {
-  console.log(res.headersSent);
+router.put("/player/put", async (req, res) => {
+  //console.log(res.headersSent);
   try {
+    console.log(req.body)
     const {
-      player_id,
-      fifa_version,
-      fifa_update_date,
-      short_name,
-      long_name,
-      player_positions,
-      overall,
-      potential,
-      age,
-      dob,
-      height_cm,
-      weigth_kg,
+      id,
       league_name,
       club_name,
-      club_jersey_number,
-      nationality_name,
-      preferred_foot,
       pace,
       shooting,
       passing,
-      dribbing,
+      //dribbing,
       defending,
       physic,
-      mentality_penalties,
-      player_face_url,
+      mentality_penalties
     } = req.body;
 
-    const newPlayer = await createPlayerService({
-      player_id,
-      fifa_version,
-      fifa_update_date,
-      short_name,
-      long_name,
-      player_positions,
-      overall,
-      potential,
-      age,
-      dob,
-      height_cm,
-      weigth_kg,
+    const putPlayer = await putPlayerByIdService({
+      id,
       league_name,
       club_name,
-      club_jersey_number,
-      nationality_name,
-      preferred_foot,
       pace,
       shooting,
       passing,
-      dribbing,
+      //dribbing,
       defending,
       physic,
-      mentality_penalties,
-      player_face_url,
+      mentality_penalties
     });
-    res.status(201).json({ newPlayer });
+    res.status(201).json({ putPlayer });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
