@@ -8,7 +8,7 @@ import { AllPlayersComponent } from './views/all-players/all-players.component';
 import { EditPlayerComponent } from './views/edit-player/edit-player.component';
 
 export const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: '', component: LoginComponent },
   { path: 'find_the_player', component: FindPlayerComponent,
     children:[
     ],
@@ -19,7 +19,7 @@ export const routes: Routes = [
 
 
   { path: 'not_found', component: NotFoundComponent },
-  {path:'**', redirectTo:'not_found'}
+ // {path:'**', redirectTo:'not_found'}
 
 ];
 

@@ -11,19 +11,20 @@
 
     <h2>Login</h2>
 
-    <form class="form" action="">
+    <form class="form" [formGroup]="form_post_player" (ngSubmit)="post()">
       <!--  USERNAME  -->
       <div class="form_field">
-        <input type="text">
+        <input type="text"    formControlName="username">
       <label for="">Username</label>
     </div>
 
       <!--  PASSWORD  -->
       <div class="form_field">
-        <input type="text">
+        <input type="text"    formControlName="password" >
         <label for="">Password</label>
       </div>
 
+      <button type="submit">Iniciar Sesion</button>
     </form>
 
   </section>

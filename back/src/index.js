@@ -3,13 +3,16 @@ import { initdb, PORT } from "./config/dbConnect.js";
 import router from "./routes/index.routes.js";
 import bodyParser from "body-parser";
 import cors from 'cors'
+import cookieParser from "cookie-parser";
 
 const app = express();
 
 // middlewares
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(cors({origin:'http://localhost:4200'}))
+app.use(cors({origin:'http://localhost:4200', credentials:true}))
+app.use(cookieParser())
+
 
 //rutas
 app.use(router);

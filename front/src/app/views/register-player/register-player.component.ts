@@ -13,7 +13,7 @@ import { CommonModule , NgIf} from '@angular/common';
 })
 export class RegisterPlayerComponent {
 
-  constructor(private service:RegisterPlayerService, private formBuilder:FormBuilder){ }
+  constructor(private serv:RegisterPlayerService, private formBuilder:FormBuilder){ }
   form_register_player:FormGroup|any
 
   ngOnInit(){
@@ -148,7 +148,7 @@ get mentality_penaltiesGET() {
 
     if (this.form_register_player.valid){
 
-    this.service.PlayerPOST({
+    this.serv.PlayerPOST({
       player_id: this.form_register_player.value.player_id,
       fifa_version: this.form_register_player.value.fifa_version,
       short_name: this.form_register_player.value.short_name,
