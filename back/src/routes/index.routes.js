@@ -22,10 +22,10 @@ router.post("/login", async (req, res) => {
   try {
     const { username, password } = req.body;
     //console.log({username,password})
-    const loginUser = await loginUserService({ username, password });
+    const token = await loginUserService({ username, password });
 
-    res.cookie("jwt", loginUser,{httpOnly:true, maxAge:24*60*60*1000} )
-    res.status(200).json({ loginUser });
+    res.cookie("jwt", token,{httpOnly:true, maxAge:24*60*60*1000} )
+    res.status(200).json({ token });
   } catch (error) {
     res.status(401).json({ message: error.message });
   }
