@@ -1,9 +1,0 @@
-// Primero hay que crear la base de datos, antes ingresamos a mysql.
-// Abrir una terminal y tipear:
-
-mysql -u root -p
-
-// ingresar contraseña de mysql. Luego tipear para crear la base de datos.
-
-CREATE DATABASE db_challenge_delhugo
-USE db_challenge_delhugo
