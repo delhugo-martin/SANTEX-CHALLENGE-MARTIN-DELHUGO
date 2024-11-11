@@ -1,8 +1,0 @@
-services:
-  mysqlDB:
-    image: mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: 1317
-      MYSQL_DATABASE: db_challenge
-    ports:
-      - 3307:3306

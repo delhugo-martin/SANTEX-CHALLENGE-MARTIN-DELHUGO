@@ -1,4 +1,4 @@
-importaciones del FRONT
+-- Bibliotecas del front--
 
 ngx-pagination
 npm i xlsx
