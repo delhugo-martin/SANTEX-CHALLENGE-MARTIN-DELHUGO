@@ -42,7 +42,7 @@ export class FindPlayerComponent {
       'Pace',
       'Shooting',
       'Passing',
-      'Overall',
+      'Dribbling',
       'Physic',
       'Mentality Penalties',
       'Potential',
@@ -86,10 +86,11 @@ export class FindPlayerComponent {
   // CODIGO ///////////////////////////////////////////////////////////////////
   find_player() {
     if (this.form_search.valid) {
+
       this.serv.PlayerByIdGET(this.form_search.value.search).subscribe(
         (data: any) => {
           this.player = data;
-          console.log(data);
+          this.datos.datasets=[]
 
           function numberRandom() {
             const minCeiled = Math.ceil(0);
@@ -108,7 +109,7 @@ export class FindPlayerComponent {
                 data[i].pace,
                 data[i].shooting,
                 data[i].passing,
-                data[i].overall,
+                data[i].dribbling,
                 data[i].physic,
                 data[i].mentality_penalties,
                 data[i].potential,
@@ -134,7 +135,7 @@ export class FindPlayerComponent {
     }
   } //
 
-  // FORM ====================0
+  // FORM ====================
   get searchGET() {
     return this.form_search.controls.search;
   }

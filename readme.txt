@@ -1,4 +1,4 @@
-// Para levantar la DB
+Para levantar la DB
     cd/back
     docker compose up
 

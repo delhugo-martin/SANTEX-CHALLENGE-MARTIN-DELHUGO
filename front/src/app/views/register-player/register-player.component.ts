@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RegisterPlayerService } from '../../services/register-player.service';
 import { ReactiveFormsModule, FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CommonModule , NgIf} from '@angular/common';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-player',
@@ -13,7 +13,9 @@ import { CommonModule , NgIf} from '@angular/common';
 })
 export class RegisterPlayerComponent {
 
-  constructor(private serv:RegisterPlayerService, private formBuilder:FormBuilder){ }
+  constructor(private serv:RegisterPlayerService,
+    private formBuilder:FormBuilder,
+    private router:Router){ }
   form_register_player:FormGroup|any
 
   ngOnInit(){
@@ -30,10 +32,10 @@ export class RegisterPlayerComponent {
   overall : ["", Validators.required],
   age : ["", Validators.required],
   potential : ["", Validators.required],
-  //dob :["", Validators.required],
+  dob :["", Validators.required],
   height_cm :["", Validators.required],
   weight_kg :["", Validators.required],
-  //league_name :["", Validators.required],
+  league_name :["", Validators.required],
   club_name :["", Validators.required],
   club_jersey_number :["", Validators.required],
   nationality_name :["", Validators.required],
@@ -83,11 +85,11 @@ get ageGET() {
 get potentialGET() {
   return this.form_register_player.controls.potential
 }
-/*
+
 get dobGET() {
   return this.form_register_player.controls.dob
 }
-*/
+
 get height_cmGET() {
   return this.form_register_player.controls.height_cm
 }
@@ -95,6 +97,10 @@ get height_cmGET() {
 get weight_kgGET() {
   return this.form_register_player.controls.weight_kg
 }
+get league_nameGET() {
+  return this.form_register_player.controls.league_name
+}
+
 
 get club_nameGET() {
   return this.form_register_player.controls.club_name
@@ -157,7 +163,7 @@ get mentality_penaltiesGET() {
       overall: this.form_register_player.value.overall,
       potential: this.form_register_player.value.potential,
       age: this.form_register_player.value.age,
-      //dob: this.form_register_player.value.dob,
+      dob: this.form_register_player.value.dob,
       height_cm: this.form_register_player.value.height_cm,
       weight_kg: this.form_register_player.value.weight_kg,
       league_name: this.form_register_player.value.league_name,
@@ -173,15 +179,15 @@ get mentality_penaltiesGET() {
       physic: this.form_register_player.value.physic,
       mentality_penalties: this.form_register_player.value.mentality_penalties,
     }
-    ).subscribe({
-      next:res=> {console.log(res)}
-      })
+    ).subscribe(
+      (data:any)=> {alert("Jugador registrado"),
+      this.router.navigate(["/all_players"])},
+      //(error)=> {console.log(error)}
+      )
 
     }else{
     this.form_register_player.markAllAsTouched();
     console.log("algo salio mal")
-    console.log(this.form_register_player.console.error()
-    )
 
 
     }

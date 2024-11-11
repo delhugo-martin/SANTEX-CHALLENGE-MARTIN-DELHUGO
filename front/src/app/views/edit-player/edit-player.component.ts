@@ -49,7 +49,7 @@ export class EditPlayerComponent {
       pace :["", Validators.required],
       shooting:["", Validators.required],
       passing:["", Validators.required],
-      //dribbling :["", Validators.required],
+      dribbling :["", Validators.required],
       defending :["", Validators.required],
       physic :["", Validators.required],
       mentality_penalties :["", Validators.required],
@@ -69,6 +69,9 @@ export class EditPlayerComponent {
   }
   get paceGET(){
     return this.form_put.controls.pace
+  }
+  get dribblingGET(){
+    return this.form_put.controls.dribbling
   }
   get shootingGET(){
     return this.form_put.controls.shooting

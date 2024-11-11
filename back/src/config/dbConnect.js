@@ -35,10 +35,7 @@ export const pool = new Sequelize(
 export const initdb = async(req,res) => {
   try {
     await pool.authenticate(); // persistencia de conexion
-    console.log('persistencia establecida')
     await pool.sync({force:false})
-    console.log('tablas creadas')
-
   } catch (error) {
     console.log('hubo un error: ', error)
   }

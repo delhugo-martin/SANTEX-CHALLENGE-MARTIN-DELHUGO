@@ -11,20 +11,39 @@
 
     <h2>Login</h2>
 
-    <form class="form" [formGroup]="form_post_player" (ngSubmit)="login()">
-      <!--  USERNAME  -->
+    <form class="form" [formGroup]="form_post" (ngSubmit)="login()">
+      <!--  USERNAME  =============================00 -->
       <div class="form_field">
-        <input type="text"    formControlName="username">
-      <label for="">Username</label>
+          <div>
+            <input type="text" formControlName="username"/>
+          <label for="">Username</label>
+        </div>
+      <!-- verificacion -->
+      <div class="form_verif" *ngIf="usernameGET.invalid && (usernameGET.dirty || usernameGET.touched)">
+        <div class="form_verif" *ngIf="usernameGET.errors?.['required']">
+          <p class="form_verif">Completa este campo.</p>
+        </div>
+      </div>
     </div>
 
       <!--  PASSWORD  -->
       <div class="form_field">
-        <input type="text"    formControlName="password" >
-        <label for="">Password</label>
-      </div>
+          <div>
+            <input type="text" formControlName="password"/>
+            <label for="">Password</label>
+          </div>
 
-      <button type="submit">Iniciar Sesion</button>
+      <!-- verificacion -->
+      <div class="form_verif"
+        *ngIf="passwordGET.invalid && (passwordGET.dirty || passwordGET.touched)"
+      >
+        <div class="form_verif" *ngIf="passwordGET.errors?.['required']">
+          <p class="form_verif">Completa este campo.</p>
+        </div>
+      </div>
+    </div>
+
+      <button class="boton" type="submit">Iniciar Sesion</button>
     </form>
 
   </section>

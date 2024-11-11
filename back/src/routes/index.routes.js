@@ -157,7 +157,17 @@ router.get(`/player/age/:age`, async (req, res) => {
   }
 });
 
-// POST PLAYER ====================================================
+// POST PLAYER
+router.post(`/player`, async (req, res) => {
+  try {
+    const postPlayer = await createPlayerService(req.body);
+    res.status(201).json(postPlayer);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// PUT PLAYER ====================================================
 router.put("/player/put", async (req, res) => {
   try {
     console.log(req.body)
@@ -168,7 +178,7 @@ router.put("/player/put", async (req, res) => {
       pace,
       shooting,
       passing,
-      //dribbing,
+      dribbling,
       defending,
       physic,
       mentality_penalties
@@ -181,7 +191,7 @@ router.put("/player/put", async (req, res) => {
       pace,
       shooting,
       passing,
-      //dribbing,
+      dribbling,
       defending,
       physic,
       mentality_penalties

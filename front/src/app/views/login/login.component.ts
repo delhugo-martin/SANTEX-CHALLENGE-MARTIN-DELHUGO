@@ -8,11 +8,13 @@ import {
 } from '@angular/forms';
 import { LoginService } from '../../services/login.service';
 import { RouterOutlet, Router } from '@angular/router';
+import { CommonModule, NgIf } from '@angular/common';
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,NgIf],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -23,21 +25,30 @@ export class LoginComponent {
     private router: Router
   ) {}
 
-  form_post_player: FormGroup | any;
+  form_post: FormGroup | any;
 
   ngOnInit() {
     // METODOS DEL FORM ==========================================================
-    this.form_post_player = this.formBuilder.group({
+    this.form_post = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
     }); // form group
   } // NG ONINIT
 
+  // FORM ====================
+  get usernameGET() {
+    return this.form_post.controls.username;
+  }
+  get passwordGET() {
+    return this.form_post.controls.password;
+  }
+
+
   login(): void {
-    this.serv
-      .login({
-        username: this.form_post_player.value.username,
-        password: this.form_post_player.value.password,
+    if (this.form_post.valid) {
+    this.serv.login({
+        username: this.form_post.value.username,
+        password: this.form_post.value.password,
       })
       .subscribe(
         (data: any) => {
@@ -48,6 +59,10 @@ export class LoginComponent {
           console.log(error);
         }
       );
+    } else {
+      this.form_post.markAllAsTouched();
+    }
+
   }
 
   // LOGIN

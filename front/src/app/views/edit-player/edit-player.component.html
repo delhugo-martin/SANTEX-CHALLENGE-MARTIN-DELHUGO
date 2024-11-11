@@ -32,7 +32,7 @@
         </div>
 
 
-      <!--  Club Name ========================================================= -->
+      <!--  league Name ========================================================= -->
       <div class="form_field">
         <div>
           <input  [(ngModel)]="player.league_name"  [ngModelOptions]="{standalone: true}">
@@ -60,6 +60,22 @@
             <!-- verificacion -->
             <div class="form_verif" *ngIf="paceGET.invalid && (paceGET.dirty || paceGET.touched)">
               <div class="form_verif" *ngIf="paceGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
+      <!--  Dribbling ==========================================================================0000 -->
+      <div class="form_field">
+        <div>
+          <input  [(ngModel)]="player.dribbling"  [ngModelOptions]="{standalone: true}">
+        <label for="">Shooting</label>
+      </div>
+
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="dribblingGET.invalid && (dribblingGET.dirty || dribblingGET.touched)">
+              <div class="form_verif" *ngIf="dribblingGET.errors?.['required']">
                   <p class="form_verif" >Complete este campo.</p>
                 </div>
             </div>

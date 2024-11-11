@@ -33,15 +33,15 @@
       <div class="form_field">
         <div>
         <select formControlName="fifa_version" class="form_select" id="player_camp" name="player_camp">
-          <option value="2015">2015</option>
-          <option value="2016">2016</option>
-          <option value="2017">2017</option>
-          <option value="2018">2018</option>
-          <option value="2018">2019</option>
-          <option value="2018">2020</option>
-          <option value="2018">2021</option>
-          <option value="2018">2022</option>
-          <option value="2018">2023</option>
+          <option value="15">2015</option>
+          <option value="16">2016</option>
+          <option value="17">2017</option>
+          <option value="18">2018</option>
+          <option value="19">2019</option>
+          <option value="20">2020</option>
+          <option value="21">2021</option>
+          <option value="22">2022</option>
+          <option value="23">2023</option>
         </select>
       <label class="form_label" for="">Version de FIFA</label>
     </div>
@@ -149,12 +149,21 @@
             </div>
         </div>
 
-      <!--  birthdate
-      <div class="form_field">
-        <input formControlName="dob" type="text">
-        <label for="">Birthdate</label>
+      <!--  birthdate-->
+    <div class="form_field">
+        <div>
+        <input formControlName="dob"  type="date">
+        <label for="">Birhtday</label>
       </div>
--->
+
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="dobGET.invalid && (dobGET.dirty || dobGET.touched)">
+              <div class="form_verif" *ngIf="dobGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
 
       <!--  Height cm ====================================================================== -->
       <div class="form_field">
@@ -188,6 +197,22 @@
         </div>
 
 
+       <!--  league Name ========================================================= -->
+       <div class="form_field">
+        <div>
+        <input formControlName="league_name"  type="text">
+        <label for="">League Name</label>
+      </div>
+
+
+            <!-- verificacion -->
+            <div class="form_verif" *ngIf="league_nameGET.invalid && (league_nameGET.dirty || league_nameGET.touched)">
+              <div class="form_verif" *ngIf="league_nameGET.errors?.['required']">
+                  <p class="form_verif" >Complete este campo.</p>
+                </div>
+            </div>
+        </div>
+
       <!--  Club Name ========================================================= -->
       <div class="form_field">
         <div>
@@ -204,6 +229,7 @@
             </div>
         </div>
 
+      <!--  Jersey Number ====================================================================== -->
 
       <div class="form_field">
         <div>
@@ -307,7 +333,7 @@
 
 
 
-      <!--  Dribbing ========================================================================== -->
+      <!--  Dribbling ========================================================================== -->
       <div class="form_field">
         <div>
         <input type="number"formControlName="dribbling"  >
