@@ -2,7 +2,7 @@ html,body{margin: 0rem; padding: 0rem;
   display: flex; flex-direction: column; justify-content: center; align-items: center;}
 
 .section{display: flex; flex-direction: column; justify-content: center; align-items: center;
- margin: 3rem;border: 1px solid  #EE363B; width: 30rem;
+ margin: 3rem;border: 1px solid  #EE363B; width: 30rem; background-image: url(../../assets/background.png);background-position: -.5rem;
  border-radius: .5rem;}
 
 .form{margin: 0rem}
