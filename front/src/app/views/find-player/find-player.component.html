@@ -6,6 +6,9 @@
     <title>Login</title>
   </head>
   <body>
+
+    <!-- FORM ======================================= -->
+
     <section class="section">
       <h2>Find Player</h2>
 
@@ -36,8 +39,136 @@
       </div>
       </form>
     </section>
+    <!-- PRIMERA SECCION ======================================= -->
 
-    <!-- RESULTADO BUSQUEDA ======================================= -->
+<section class="section_1">
+
+  <!-- CARD -->
+  <div class="card">
+    <div class="card_row_1 ">
+      <div class=""><h3>player id</h3></div>
+      <div class=""><h3>DC</h3></div>
+    </div>
+
+    <div class="card_row_2 "> <img src="https://cdn.sofifa.net/players/158/023/15_120.png" alt=""></div>
+
+    <div class="card_row_3">
+      <div><h3>nombre</h3></div>
+      <div><h3>nombre</h3></div>
+      <div><h3>nombre</h3></div>
+    </div>
+  </div>
+
+  <!-- INFO GENERAL -->
+  <div class="info_gral " >
+
+      <div></div>
+      <div></div>
+      <div><h3>Nombre Completo</h3></div>
+      <div><h3>hola</h3></div>
+      <div><h3>Player ID</h3></div>
+      <div><h3>hola</h3></div>
+      <div><h3>Liga</h3></div>
+      <div><h3>hola</h3></div>
+      <div><h3>Fecha de nacimiento</h3></div>
+      <div><h3>hola</h3></div>
+      <div><h3>Altura</h3></div>
+      <div><h3>hola</h3></div>
+      <div><h3>Peso</h3></div>
+      <div><h3>hola</h3></div>
+      <div><h3>FIFA versión</h3></div>
+      <div><h3>hola</h3></div>
+
+    <div>
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+</section>
+
+    <!-- END PRIMERA SECCION ======================================= -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section>
+      <h2>Informacion general del jugador</h2>
+
+      <section class="info_general" *ngFor="let s of player" >
+      <div class="boxs"><h4 class="boxs">Id Player</h4> <h4>{{s.player_id}}</h4></div>
+      <div class="boxs"><h4>Short name</h4> <h4>{{s.short_name}}</h4></div>
+      <div class="boxs"><h4>Long name</h4> <h4>{{s.long_name}}</h4></div>
+      <div class="boxs"><h4>FIFA Version</h4> <h4>{{ s.fifa_version }}</h4></div>
+      <div class="boxs"><h4>Age</h4> <h4>{{ s.age }}</h4></div>
+      <div class="boxs"><h4>Birthday</h4> <h4>{{ s.dob }}</h4></div>
+      <div class="boxs"><h4>Height</h4> <h4>{{ s.height_cm }}</h4></div>
+      <div class="boxs"><h4>Wieght </h4> <h4>{{ s.weight_kg }}</h4></div>
+      <div class="boxs"><h4>Player Face</h4> <img src="{{s.player_face_url}}" alt=""></div>
+
+
+
+
+
+
+
+      </section>
+
+    </section>
+
+
+
+
+
+
+    <!-- ======================================================================= -->
+    <!-- ======================================================================= -->
+    <!-- ======================================================================= -->
+    <!-- ======================================================================= -->
+    <!-- ======================================================================= -->
+
+
+    <!-- RESULTADO BUSQUEDA INFO GENERAL ======================================= -->
 
     <section class="tabla">
       <table class="">
@@ -48,56 +179,108 @@
             <th class="col">Short name</th>
             <th class="col">Long name</th>
             <th class="col">Fifa Version</th>
-            <th class="col">Player positions</th>
-            <th class="col">Overall</th>
-            <th class="col">Potential</th>
             <th class="col">Age</th>
             <th class="col">Birthday</th>
             <th class="col">Height (cm)</th>
             <th class="col">Wieght (kg)</th>
-            <th class="col">League name</th>
-            <th class="col">Club name</th>
-            <th class="col">Jersey number</th>
-            <th class="col">Nationality</th>
-            <th class="col">Preferred foot</th>
+            <th class="col">Imagen</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let s of player">
+          <tr>
+            <th class="col"><button (click)="toUpdate(s.id)">Editar</button></th>
+            <th class="col">{{ s.player_id }}</th>
+            <th class="col">{{ s.short_name }}</th>
+            <th class="col">{{ s.long_name }}</th>
+            <th class="col">{{ s.fifa_version }}</th>
+            <th class="col">{{ s.age }}</th>
+            <th class="col">{{ s.dob }}</th>
+            <th class="col">{{ s.height_cm }}</th>
+            <th class="col">{{ s.weight_kg }}</th>
+            <th class="col"><img src="{{s.player_face_url}}" alt=""></th>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+ <!-- RESULTADO BUSQUEDA INFO DE LIGA ======================================= -->
+
+ <section class="tabla">
+  <table class="">
+    <thead>
+      <tr>
+        <th class="col">Player positions</th>
+        <th class="col">League name</th>
+        <th class="col">Club name</th>
+        <th class="col">Jersey number</th>
+        <th class="col">Nationality</th>
+        <th class="col">Preferred foot</th>
+
+      </tr>
+    </thead>
+    <tbody *ngFor="let s of player">
+      <tr>
+
+
+        <th class="col">{{ s.player_positions }}</th>
+
+
+        <th class="col">{{ s.league_name }}</th>
+        <th class="col">{{ s.club_name }}</th>
+        <th class="col">{{ s.club_jersey_number }}</th>
+        <th class="col">{{ s.nationality_name }}</th>
+        <th class="col">{{ s.preferred_foot }}</th>
+
+
+
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+     <!-- RESULTADO BUSQUEDA ESTADISTICAS ======================================= -->
+
+     <section class="tabla">
+      <table class="">
+        <thead>
+          <tr>
+
+            <th class="col">Overall</th>
+            <th class="col">Potential</th>
+
+
             <th class="col">Pace</th>
             <th class="col">Shooting</th>
             <th class="col">Passing</th>
             <th class="col">Dribbling</th>
             <th class="col">Physic</th>
             <th class="col">Mentality penalties</th>
-            <th class="col">Player face URL</th>
-          </tr>
+       </tr>
         </thead>
         <tbody *ngFor="let s of player">
           <tr>
-            <th class="col"><button (click)="toUpdate(s.id)">Editar</button></th>
 
-            <th class="col">{{ s.player_id }}</th>
-            <th class="col">{{ s.short_name }}</th>
-            <th class="col">{{ s.long_name }}</th>
-            <th class="col">{{ s.fifa_version }}</th>
-            <th class="col">{{ s.player_positions }}</th>
+
             <th class="col">{{ s.overall }}</th>
             <th class="col">{{ s.potential }}</th>
-            <th class="col">{{ s.age }}</th>
-            <th class="col">{{ s.dob }}</th>
-            <th class="col">{{ s.height_cm }}</th>
-            <th class="col">{{ s.weight_kg }}</th>
-            <th class="col">{{ s.league_name }}</th>
-            <th class="col">{{ s.club_name }}</th>
-            <th class="col">{{ s.club_jersey_number }}</th>
-            <th class="col">{{ s.nationality_name }}</th>
-            <th class="col">{{ s.preferred_foot }}</th>
+
             <th class="col">{{ s.pace }}</th>
             <th class="col">{{ s.shooting }}</th>
             <th class="col">{{ s.passing }}</th>
             <th class="col">{{ s.dribbling }}</th>
             <th class="col">{{ s.physic }}</th>
             <th class="col">{{ s.mentality_penalties }}</th>
-            <th class="col">
-              <a target="_blank" href="{{ s.player_face_url }}">Link</a>
-            </th>
+
           </tr>
         </tbody>
       </table>
